@@ -70,4 +70,11 @@ body: {
   }
 ```
 
+## Check the API online
+
+Here is the base URL to test the project online:
+```bash
+  https://e26ynei0fa.execute-api.us-west-2.amazonaws.com/prod
+```
+
 
