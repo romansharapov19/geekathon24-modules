@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  ExpressLambdaApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/index.handler
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 660
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+            RestApiId: !Ref ExpressApi
+
+  ExpressApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: express-api
+      StageName: prod
+
+  LambdaInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ExpressLambdaApi
+      Principal: apigateway.amazonaws.com
+      SourceArn: arn:aws:execute-api:us-west-2:451852144542:e26ynei0fa/*/*/{proxy+}

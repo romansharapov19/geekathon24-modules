@@ -1,0 +1,30 @@
+{
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "description": "A simple Express app for AWS Lambda",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "deploy": "sam deploy"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.699.0",
+    "@aws-sdk/credential-provider-node": "^3.699.0",
+    "@aws-sdk/types": "^3.696.0",
+    "@smithy/eventstream-codec": "^2.2.0",
+    "@smithy/protocol-http": "^4.1.7",
+    "@smithy/signature-v4": "^4.2.3",
+    "@smithy/util-utf8": "^3.0.0",
+    "aws-sdk": "^2.1692.0",
+    "aws-serverless-express": "^3.4.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7",
+    "serverless-http": "^2.7.0"
+  }
+}

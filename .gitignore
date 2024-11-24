@@ -1,0 +1,5 @@
+.sam
+.aws-sam
+package-lock.json
+node_modules
+.env
